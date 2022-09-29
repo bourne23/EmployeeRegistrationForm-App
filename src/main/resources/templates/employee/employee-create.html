@@ -1,0 +1,81 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Employee Registration Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+<!--<h1>Hello, world!</h1>-->
+
+<!--Fluid containers-->
+<div class="container-fluid">
+    <div class="d-flex justify-content-center">
+
+        <div class="card">
+            <h2 class="card-header bg-info text-white p-5" >
+               Welcome to Registration page
+            </h2>
+            <div class="card-body">
+                <form class="row g-3" th:object="${employee}" th:action="@{employee/list}" method="post">
+                    <div class="col">
+                        <label for="inputName4" class="form-label">First name</label>
+                        <input type="text" class="form-control" id="inputName4" placeholder="First name" th:field="*{firstName}">
+                    </div>
+                    <div class="col">
+                        <label for="lastName4" class="form-label">Last name</label>
+                        <input type="text" class="form-control" id="lastName4" placeholder="Last name" th:field="*{lastName}">
+                    </div>
+                    <div class="col">
+                        <label for="birthdate" class="form-label">Birthdate</label>
+                        <input type="date" class="form-control" id="birthdate" th:field="*{birthDate}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputEmail4" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" th:field="*{email}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputPassword4" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" th:field="*{password}">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress" class="form-label">Address</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" th:field="*{address}">
+                    </div>
+                    <div class="col-12">
+                        <label for="inputAddress2" class="form-label">Address 2</label>
+                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" th:field="*{address2}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputCity" class="form-label">City</label>
+                        <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="inputState" class="form-label">State</label>
+                        <select id="inputState" class="form-select" th:field="*{state}">
+                            <option th:each="state : ${states}" th:text="${state}" th:value="${state}"></option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="inputZip" class="form-label">Zip</label>
+                        <input type="text" class="form-control" id="inputZip" th:field="*{zipCode}">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    <!-- Content here -->
+
+</div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+</body>
+</html>
